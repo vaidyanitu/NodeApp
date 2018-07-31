@@ -1,5 +1,7 @@
 
 module.exports=function(app,passport){
+    var path=require('path');
+var angUrl=path.join(__dirname,'../client/dist/index.html');
 
     //==================================================
     // Home page (with login links)=====================
@@ -18,7 +20,7 @@ module.exports=function(app,passport){
 
     //process the login form
     app.post('/login',passport.authenticate('local-login',{
-        successRedirect:'/profile',//redirect to the secure profile section
+        successRedirect:'/home',//redirect to the secure profile section
         failureRedirect:'/login', //redirect back to the signup page if there is an error
         failureFlash:true //allow flash messages
     }));
@@ -38,6 +40,14 @@ module.exports=function(app,passport){
         failureRedirect:'/signup', //redirect back to the signup page if there is an error
         failureFlash:true //allow flash messages
     }));
+
+
+
+
+    app.get('/home',isLoggedIn,function(req,res){
+        console.log(__dirname);
+        res.sendfile(path.join(__dirname,'../../client/dist/client/index.html'));
+    })
 
 
     // =====================================
@@ -72,7 +82,7 @@ module.exports=function(app,passport){
     //the callback after google has authenticated the user
     app.get('/auth/google/callback',
         passport.authenticate('google',{
-            successRedirect:'/profile',
+            successRedirect:angUrl,
             failureRedirect:'/'
         })
     );
@@ -88,7 +98,7 @@ module.exports=function(app,passport){
     });
 
     app.post('/connect/local',passport.authenticate('local-signup',{
-        successRedirect:'/profile',
+        successRedirect:angUrl,
         failureRedirect:'/connect/local',
         failureFlash:true
     }));
