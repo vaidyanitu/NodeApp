@@ -12,7 +12,7 @@ var bodyParser= require('body-parser');
 var session= require('express-session');
 
 var configDB= require('./config/database.js');
-
+var user={};
 //configuration===============================================
 mongoose.connect(configDB.url,{ useNewUrlParser: true }); //connect to our database
 
@@ -36,10 +36,25 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
 app.use(flash()); //use connect-flash for flash messages stored in session
+const productRoutes= require('./app/categoryRoutes');
+app.use('/category',isLoggedIn,productRoutes);
 
 //routes ==================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
 //launch ====================================================================
 app.listen(port);
 console.log(' The magic happens on port '+ port);
+
+
+function isLoggedIn(req, res,next){
+    
+    //if user is authenticated in the session, carry on
+    if(req.isAuthenticated())
+    {
+        // this.user=req.user;
+        res.locals.user=req.user;
+        return next();
+    }         
+    //if they aren't redirect them to the home page
+    res.redirect('/');
+    }
