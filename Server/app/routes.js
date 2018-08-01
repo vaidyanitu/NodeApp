@@ -44,9 +44,11 @@ var angUrl=path.join(__dirname,'../client/dist/index.html');
 
 
 
-    app.get('/home',isLoggedIn,function(req,res){
+    app.get('/home',
+    //isLoggedIn,
+    function(req,res){
         console.log(__dirname);
-        res.sendfile(path.join(__dirname,'../../client/dist/client/index.html'));
+        res.sendfile(path.join(__dirname,'../dist/index.html'));
     })
 
 

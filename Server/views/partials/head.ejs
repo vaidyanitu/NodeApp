@@ -1,18 +1,19 @@
 <html>
 <head>
     <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
      -->
-    <div class="container bcolor">
-        <h1 class="alignleft"></h1>
-        <h1 class="aligncenter"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> My Node Application</h1>
-        <div class="alignright ">
-                    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <%-include('./stylescss') %> 
+
+    <div class="disp bcolor">
+            <h1 class="alignleft"></h1>
+            <h1 class="aligncenter"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> My Node Application</h1>
+            <div class="alignright ">
+                    <a href="/logout" class="btn btn-default">Logout</a>
                     <!-- <% if (locals.user){%>
                         <p>user=</p><%= locals.user %>
                     <%}%> -->
@@ -29,7 +30,6 @@
                         <% } else { %>
                             <a href="/connect/google" class="btn btn-danger">Connect <span class="fa fa-google-plus"></span></a>
                         <% } %>         
-        </div>                            
+        </div>                               
     </div>
-    <%-include('./stylescss') %> 
 </head>

@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.set('view engine','ejs'); //set up ejs for templating
 
-app.use(express.static(path.join(__dirname,'../client/dist')));
+
 app.set('views',path.join(__dirname,'/views'));
 
 //required for passport
@@ -45,6 +45,8 @@ app.use('/category',isLoggedIn,catRoutes);
 
 //routes ==================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+app.use(express.static(path.join(__dirname,'./dist')));
+
 //launch ====================================================================
 app.listen(port);
 console.log(' The magic happens on port '+ port);
