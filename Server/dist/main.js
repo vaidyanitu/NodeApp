@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n    <div class=\"disp bcolor\">\r\n        <h1 class=\"alignleft\"></h1>\r\n        <h1 class=\"aligncenter\"><i class=\"fa fa-puzzle-piece\" aria-hidden=\"true\"></i> My Node Application</h1>\r\n        <div class=\"alignright \">\r\n                    <a href=\"/logout\" class=\"btn btn-default\">Logout</a>\r\n                    \r\n                         <!-- <a href=\"/unlink/google\" class=\"btn btn-danger\">Unlink <span class=\"fa fa-google-plus\"></span></a> -->\r\n                      \r\n                            <a href=\"/connect/google\" class=\"btn btn-danger\">Connect <span class=\"fa fa-google-plus\"></span></a>\r\n                            \r\n        </div>                            \r\n    </div>\r\n   \r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n    <div class=\"disp bcolor\">\r\n        <h1 class=\"alignleft\"></h1>\r\n        <h1 class=\"aligncenter\"><i class=\"fa fa-puzzle-piece\" aria-hidden=\"true\"></i> My Node Application</h1>\r\n        <div style=\"float: right;\">\r\n            <a *ngIf=\"authUser._id; else elseBlock\" href=\"/logout\" class=\"btn btn-default\">Logout</a>\r\n            <ng-template #elseBlock><a href=\"/\" class=\"btn btn-default\">Login</a></ng-template>     \r\n            <!-- <a href=\"/unlink/google\" class=\"btn btn-danger\">Unlink <span class=\"fa fa-google-plus\"></span></a> -->       \r\n            <a href=\"/connect/google\" class=\"btn btn-danger\">Connect <span class=\"fa fa-google-plus\"></span></a>                           \r\n        </div>                            \r\n    </div>\r\n   \r\n"
 
 /***/ }),
 
@@ -56,23 +56,40 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(http) {
+        var _this = this;
+        this.http = http;
         this.title = 'app';
+        this.authUser = {};
+        debugger;
+        this.http.get('/authenticate')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }))
+            .subscribe(function (res) {
+            _this.authUser = res;
+        });
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -93,7 +110,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,19 +121,21 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;

@@ -1,7 +1,6 @@
 
 module.exports=function(app,passport){
     var path=require('path');
-var angUrl=path.join(__dirname,'../client/dist/index.html');
 
     //==================================================
     // Home page (with login links)=====================
@@ -84,7 +83,7 @@ var angUrl=path.join(__dirname,'../client/dist/index.html');
     //the callback after google has authenticated the user
     app.get('/auth/google/callback',
         passport.authenticate('google',{
-            successRedirect:angUrl,
+            successRedirect:'/home',
             failureRedirect:'/'
         })
     );
@@ -100,7 +99,7 @@ var angUrl=path.join(__dirname,'../client/dist/index.html');
     });
 
     app.post('/connect/local',passport.authenticate('local-signup',{
-        successRedirect:angUrl,
+        successRedirect:'/home',
         failureRedirect:'/connect/local',
         failureFlash:true
     }));
@@ -145,6 +144,22 @@ app.get('/unlink/google', function(req,res){
         res.redirect('back');
     });
 });
+
+
+
+app.get('/authenticate',(req,res)=>{
+    if(req.isAuthenticated()){
+    console.log(req.user);
+        res.statusCode=200;
+        res.setHeader('Content-Type','application/json');
+        res.json(req.user);
+    }
+    else{
+    res.statusCode=400;
+    res.setHeader('Content-Type','application/json');
+    res.send();
+    }
+})
 
 };
 

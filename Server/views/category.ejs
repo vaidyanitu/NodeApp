@@ -16,7 +16,7 @@
                     <div id="myModal" class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
-                                <span class="close">&times;</span>
+                                <span class="closed">&times;</span>
                                 <form method="post" action="/category">
                                     <label for="name">Category Name</label>
                                     <input type="text" name="name"/>
@@ -54,7 +54,7 @@ var modal = document.getElementById('myModal');
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("closed")[0];
 //When user clicks on the button, open the modal
 btn.onclick=function(){
     modal.style.display="block";
