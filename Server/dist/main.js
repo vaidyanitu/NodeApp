@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n    <div class=\"disp bcolor\">\r\n        <h1 class=\"alignleft\"></h1>\r\n        <h1 class=\"aligncenter\"><i class=\"fa fa-puzzle-piece\" aria-hidden=\"true\"></i> My Node Application</h1>\r\n        <div style=\"float: right;\">\r\n            <a *ngIf=\"authUser._id; else elseBlock\" href=\"/logout\" class=\"btn btn-default\">Logout</a>\r\n            <ng-template #elseBlock><a href=\"/\" class=\"btn btn-default\">Login</a></ng-template>     \r\n            <!-- <a href=\"/unlink/google\" class=\"btn btn-danger\">Unlink <span class=\"fa fa-google-plus\"></span></a> -->       \r\n            <a href=\"/connect/google\" class=\"btn btn-danger\">Connect <span class=\"fa fa-google-plus\"></span></a>                           \r\n        </div>                            \r\n    </div>\r\n   \r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n    <div class=\"disp bcolor\">\r\n        <h1 class=\"alignleft\"></h1>\r\n        <h1 class=\"aligncenter\"><i class=\"fa fa-puzzle-piece\" aria-hidden=\"true\"></i> My Node Application</h1>\r\n        <div style=\"float: right;\">\r\n            <a *ngIf=\"authUser._id; else elseBlock\" href=\"/logout\" class=\"btn btn-default\">Logout</a>\r\n            <ng-template #elseBlock><a href=\"/\" class=\"btn btn-default\">Login</a></ng-template>     \r\n            <!-- <a href=\"/unlink/google\" class=\"btn btn-danger\">Unlink <span class=\"fa fa-google-plus\"></span></a> -->       \r\n            <a *ngIf=\"showGoogUnlink()\" href=\"/unlink/google\" class=\"btn btn-danger\">Unlink <span class=\"fa fa-google-plus\"></span></a>                           \r\n            <a *ngIf=\"showGoogConnect()\" href=\"connect/google\" class=\"btn btn-danger\">Connect <span class=\"fa fa-google-plus\"></span></a>    \r\n\r\n        </div>                            \r\n    </div>\r\n   \r\n"
 
 /***/ }),
 
@@ -72,17 +72,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AppComponent = /** @class */ (function () {
     function AppComponent(http) {
-        var _this = this;
         this.http = http;
         this.title = 'app';
         this.authUser = {};
+    }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
         debugger;
         this.http.get('/authenticate')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }))
             .subscribe(function (res) {
             _this.authUser = res;
         });
-    }
+    };
+    AppComponent.prototype.showGoogUnlink = function () {
+        console.log(this.authUser);
+        if (this.authUser._id && this.authUser.local.email && this.authUser.google.token)
+            return true;
+        else
+            return false;
+    };
+    AppComponent.prototype.showGoogConnect = function () {
+        if (this.authUser._id && this.authUser.local.email) {
+            debugger;
+            if (!this.authUser.google.token)
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
