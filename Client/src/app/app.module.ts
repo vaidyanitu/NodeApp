@@ -1,18 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{HttpModule} from '@angular/http';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
+import {AuthUserService} from './services/authUser.service';
+import {AppRoutingModule} from './app.routing';
+import {AuthGuardService} from './authguard/auth-guard.service';
+import {ProductComponent} from './product/product.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthUserService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

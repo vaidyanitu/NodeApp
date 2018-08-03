@@ -149,7 +149,6 @@ app.get('/unlink/google', function(req,res){
 
 app.get('/authenticate',(req,res)=>{
     if(req.isAuthenticated()){
-    console.log(req.user);
         res.statusCode=200;
         res.setHeader('Content-Type','application/json');
         res.json(req.user);

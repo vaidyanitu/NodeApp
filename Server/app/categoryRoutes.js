@@ -13,16 +13,21 @@ router.route('/')
     Category.find()
     .then((cat)=>{
         console.log(cat);
-       res.render('category.ejs',{category:cat});
+       //res.render('category.ejs',{category:cat});
+       res.statusCode=200;
+       res.setHeader('Content-Type','application/json');
+       res.json(cat);
     },(err)=>next(err))
     .catch((err)=>next(err));
 })
 .post((req,res,next)=>{
     console.log(req.body);
     Category.create(req.body)
-    .then((promo) => {
-        console.log('Category Created ', promo); 
-        res.redirect('/category');
+    .then((cat) => {
+        console.log('Category Created ', cat); 
+        res.statusCode=200;
+        res.setHeader('Content-Type','application/json');
+        res.json(cat);        
     }, (err) =>{ console.log(err);
         next(err)})
     .catch((err) => next(err));

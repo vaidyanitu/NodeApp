@@ -41,12 +41,15 @@ app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
 app.use(flash()); //use connect-flash for flash messages stored in session
 const catRoutes= require('./app/categoryRoutes');
-app.use('/category',isLoggedIn,catRoutes);
+app.use('/api/category',isLoggedIn,catRoutes);
 
 //routes ==================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 app.use(express.static(path.join(__dirname,'./dist')));
-
+app.get('*', function(req, res){
+    res.sendfile(path.join(__dirname,'/dist/index.html'));
+    // res.render('index.html');
+});
 //launch ====================================================================
 app.listen(port);
 console.log(' The magic happens on port '+ port);

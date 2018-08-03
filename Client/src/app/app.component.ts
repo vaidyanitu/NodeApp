@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import{ Http,Response} from '@angular/http';
 import { map } from "rxjs/operators";
-import {User} from './user.model';
+import {User} from './models/user.model';
+import {AuthUserService }from './services/authUser.service';
+import { RouterModule, Routes, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -10,33 +13,30 @@ import {User} from './user.model';
 })
 export class AppComponent implements OnInit{
   title = 'app';
-  authUser:User={} as User;
+  authUser:User=new User();
 
-  constructor(private http:Http){
+  constructor(private http:Http,private sharedUser:AuthUserService,
+    private router: Router){
     
   }
 
   ngOnInit(){
-    debugger;
-    this.http.get('/authenticate')
-    .pipe(map(res=>res.json()))
-    .subscribe((res:User)=>{      
-      this.authUser=res;
-    });
+    this.sharedUser.getUser().subscribe(x=>{
+      this.authUser=x;
+      this.sharedUser.setUser(this.authUser);
+    });    
   }
 
   showGoogUnlink(){
-    console.log(this.authUser);
-    if(this.authUser._id &&this.authUser.local.email && this.authUser.google.token)
+    if(!this.authUser._id==undefined && !this.authUser.local.email==undefined && !this.authUser.google.token==undefined)
     return true;
     else
     return false;
   }
   showGoogConnect(){
     
-    if(this.authUser._id && this.authUser.local.email){
-      debugger;
-      if(!this.authUser.google.token)
+    if(!this.authUser._id==undefined && !this.authUser.local.email==undefined){
+      if(!this.authUser.google.token!==undefined)
       return true
       else 
       return false
