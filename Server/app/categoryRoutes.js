@@ -34,15 +34,50 @@ router.route('/')
 })
 
 
-router.route('/delete/:catId')
-.get((req,res,next)=>{
+ router.route('/:catId')
+ .get((req,res,next)=>{
+     Category.findById(req.params.catId)
+     .then((cat)=>{
+         console.log(cat);
+         res.statusCode=200;
+         res.setHeader('Content-Type','application/json');
+         res.json(cat);  
+     }, (err) =>{
+          error = new Error('Category ' + req.params.catId + ' not found');
+          error.status = 404;
+          return next(error);
+    })
+    .catch((err) => next(err));
+})
+.put((req,res,next)=>{
+    Category.findByIdAndUpdate(req.params.catId,
+        {$set:req.body},{new:true})
+    .then((cat)=>{
+        console.log(cat);
+        res.statusCode=200;
+        res.setHeader('Content-Type','application/json');
+        res.json(cat);  
+    }, (err) =>{
+         error = new Error('Category ' + req.params.catId + ' not found');
+         error.status = 404;
+         return next(error);
+   })
+   .catch((err) => next(err));
+})
+.delete((req,res,next)=>{
     Category.findByIdAndRemove(req.params.catId)
     .exec()
     .then(resp=>{
                     console.log(resp);
-                    res.redirect('/category');
+                    res.statusCode=200;
+                    res.setHeader('Content-Type','application/json');
+                    res.json(resp);
                     }
-        ,(err)=>next(err))
+        ,(err)=>{
+            err = new Error('Category ' + req.params.catId + ' not found');
+            err.status = 404;
+            return next(err);
+            })
     .catch((err)=>next(err));
 });
 

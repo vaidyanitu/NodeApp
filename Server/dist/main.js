@@ -410,7 +410,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n    <div class=\"disp subheading\">\n        <h1><span class=\"fa fa-anchor\"></span>Category</h1>        \n    </div>\n  \n    <div>\n     <div class=\"row\">\n        <div class=\"col-sm-6\">\n            <div class=\"cbox\">\n                <h3 class=\"text-danger\"><span class=\"\tfa fa-edit\"></span> Categories <i class=\"fa fa-plus\" id=\"myBtn\" style=\"float: right; margin-right: 100px\" (click)=\"openModal(template)\"></i></h3>\n                    <!-- <button type=\"button\" class=\"btn btn-primary\" (click)=\"openModal(template)\">Create template modal</button> -->\n                    <ng-template #template>\n                      <div class=\"modal-header\">\n                        <h4 class=\"modal-title pull-left\">Add Category</h4>\n                        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n                          <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                      </div>\n                      <div class=\"modal-body\">\n                          <form >\n                            <label for=\"name\">Category Name</label>\n                            <input type=\"text\" #name/>\n                            <button type=\"submit\" (click)=\"addCat(name.value)\">Add</button>\n                        </form>\n                      </div>\n                    </ng-template>                \n        \n                <table cellspacing=\"20\" cellpadding=\"10\">\n                                              \n                        <tr *ngFor=\"let item of cat\">\n                        <td> {{item.name}}</td>                                    \n                        <td><span class=\"fa fa-minus-square\" id=item._id (click)=\"deletedisp(this.id)\"></span></td>  \n                        </tr>                                                 \n                </table>          \n            </div>\n        </div>\n      </div>\n    </div>\n\n<script>\nfunction deletedisp(id){\n    console.log(\"the category id is \"+id);\n    var result=confirm(\"Are you sure you want to delete this?\");\n    if(result){\n        location.href='category/delete/'+id;    }\n    }\n</script>\n"
+module.exports = "\n    <div class=\"disp subheading\">\n        <h1 class=\"subheadingcaption\"><span class=\"fa fa-anchor\"></span> Category</h1>        \n    </div>\n  \n    <div class=\"bod\">\n     <div class=\"row\">\n        <div class=\"col-sm-6\">\n            <div class=\"cbox\">\n                <h3 class=\"text-danger\"><span class=\"\tfa fa-edit\"></span> Categories <i class=\"fa fa-plus\" id=\"myBtn\" style=\"float: right; margin-right: 100px\" (click)=\"openModal(template)\"></i></h3>\n                    <!-- <button type=\"button\" class=\"btn btn-primary\" (click)=\"openModal(template)\">Create template modal</button> -->\n                    <ng-template #template>\n                      <div class=\"modal-header\">\n                        <h4 class=\"modal-title pull-left\">Add Category</h4>\n                        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n                          <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                      </div>\n                      <div class=\"modal-body\">\n                          <form>\n                            <label for=\"name\">Category Name</label>\n                            <input type=\"text\" #name/>\n                            <button type=\"button\" class=\"btn\" (click)=\"addCat(name.value)\">Add</button>\n                        </form>\n                      </div>\n                    </ng-template>                \n                    <ng-template #updtemplate>\n                        <div class=\"modal-header\">\n                          <h4 class=\"modal-title pull-left\">Edit Category</h4>\n                          <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n                            <span aria-hidden=\"true\">&times;</span>\n                          </button>\n                        </div>\n                        <div class=\"modal-body\">\n                            <form >\n                                <input type=\"hidden\" #id value={{modalService.config.initialState.id}}/>\n                              <label for=\"name\">Category Name </label>\n                              <input type=\"text\" #name value={{modalService.config.initialState.name}}/>\n                              <button type=\"button\" class=\"btn\" (click)=\"editCat(id.value,name.value)\">Edit</button>\n                          </form>\n                        </div>\n                      </ng-template>   \n                <table cellspacing=\"20\" cellpadding=\"10\">\n                                              \n                        <tr *ngFor=\"let item of cat\">\n                        <td> {{item.name}}</td>                                    \n                        <td><span class=\"fa fa-minus-square\" id=item._id (click)=\"deleteCat(item._id)\"></span></td>  \n                        <td><i class=\"fa fa-pencil-square-o\" (click)=\"openModal(updtemplate,item)\"></i></td>\n                    </tr>                                                 \n                </table>          \n            </div>\n        </div>\n      </div>\n    </div>\n\n\n"
 
 /***/ }),
 
@@ -460,8 +460,13 @@ var ProductComponent = /** @class */ (function () {
     }
     ProductComponent.prototype.ngOnInit = function () {
     };
-    ProductComponent.prototype.openModal = function (template) {
-        this.modalRef = this.modalService.show(template);
+    ProductComponent.prototype.openModal = function (template, val) {
+        debugger;
+        var initialState = {
+            name: val ? val.name : '',
+            id: val ? val._id : ''
+        };
+        this.modalRef = this.modalService.show(template, { initialState: initialState });
     };
     ProductComponent.prototype.addCat = function (cname) {
         var _this = this;
@@ -474,6 +479,39 @@ var ProductComponent = /** @class */ (function () {
             _this.getData().subscribe(function (x) {
                 console.log(x);
                 _this.cat = x;
+                _this.modalRef.hide();
+            });
+        }, function (err) {
+            console.log('Error ', err);
+        });
+    };
+    ProductComponent.prototype.deleteCat = function (cid) {
+        var _this = this;
+        debugger;
+        var result = confirm("Are you sure you want to delete this?");
+        if (result) {
+            this.productservice.delData(cid, '/api/category')
+                .subscribe(function (res) {
+                _this.getData().subscribe(function (x) {
+                    _this.cat = x;
+                    return false;
+                });
+            }, function (err) {
+                console.log('Error ', err);
+            });
+        }
+    };
+    ProductComponent.prototype.editCat = function (cid, name) {
+        var _this = this;
+        debugger;
+        var cat = new _models_product_model__WEBPACK_IMPORTED_MODULE_2__["Category"]();
+        cat.name = name;
+        cat._id = cid;
+        this.productservice.editData(cid, '/api/category/', cat)
+            .subscribe(function (res) {
+            _this.getData().subscribe(function (x) {
+                _this.cat = x;
+                _this.modalRef.hide();
             });
         }, function (err) {
             console.log('Error ', err);
@@ -481,6 +519,21 @@ var ProductComponent = /** @class */ (function () {
     };
     ProductComponent.prototype.getData = function () {
         return this.productservice.getData("api/category").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (x) { return x.json(); }));
+    };
+    ProductComponent.prototype.test = function () {
+        var _this = this;
+        var a = new _models_product_model__WEBPACK_IMPORTED_MODULE_2__["Category"]();
+        a.name = "TestObject";
+        this.productservice.addData(a, '/api/category')
+            .subscribe(function (res) {
+            console.log(res);
+            _this.getData().subscribe(function (x) {
+                console.log(x);
+                _this.cat = x;
+            });
+        }, function (err) {
+            console.log('Error ', err);
+        });
     };
     ProductComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -589,6 +642,16 @@ var ProductsService = /** @class */ (function () {
     ProductsService.prototype.addData = function (obj, urlroute) {
         debugger;
         return this.http.post(urlroute, obj).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (x) { return x.json(); }));
+    };
+    ProductsService.prototype.delData = function (id, urlroute) {
+        debugger;
+        return this.http.delete(urlroute + '/' + id);
+    };
+    ProductsService.prototype.editData = function (id, urlroute, data) {
+        debugger;
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({ 'Content-Type': 'application/json' });
+        var options = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["RequestOptions"]({ headers: headers });
+        return this.http.put(urlroute + '/' + id, data, options);
     };
     ProductsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
