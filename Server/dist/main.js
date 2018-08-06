@@ -90,17 +90,34 @@ var AppComponent = /** @class */ (function () {
         });
     };
     AppComponent.prototype.showGoogUnlink = function () {
-        if (!this.authUser._id == undefined && !this.authUser.local.email == undefined && !this.authUser.google.token == undefined)
-            return true;
+        debugger;
+        if (this.authUser._id && this.authUser.local) {
+            if (this.authUser.local.email && this.authUser.google) {
+                if (this.authUser.google.token) {
+                    return true;
+                }
+            }
+        }
         else
             return false;
     };
     AppComponent.prototype.showGoogConnect = function () {
-        if (!this.authUser._id == undefined && !this.authUser.local.email == undefined) {
-            if (!this.authUser.google.token !== undefined)
-                return true;
-            else
-                return false;
+        debugger;
+        if (this.authUser._id && this.authUser.local) {
+            if (this.authUser.local.email) {
+                if (!this.authUser.google) {
+                    return true;
+                }
+                else if (this.authUser.google) {
+                    if (!this.authUser.google.token) {
+                        return true;
+                    }
+                    // return false;
+                }
+                // return false;
+            }
+            //else 
+            // return false
         }
         else
             return false;
