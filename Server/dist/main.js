@@ -149,15 +149,16 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _services_authUser_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/authUser.service */ "./src/app/services/authUser.service.ts");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
-/* harmony import */ var _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./authguard/auth-guard.service */ "./src/app/authguard/auth-guard.service.ts");
-/* harmony import */ var _product_product_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./product/product.component */ "./src/app/product/product.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _services_authUser_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/authUser.service */ "./src/app/services/authUser.service.ts");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
+/* harmony import */ var _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./authguard/auth-guard.service */ "./src/app/authguard/auth-guard.service.ts");
+/* harmony import */ var _product_product_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product/product.component */ "./src/app/product/product.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -174,24 +175,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _product_product_component__WEBPACK_IMPORTED_MODULE_8__["ProductComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["DashboardComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _product_product_component__WEBPACK_IMPORTED_MODULE_9__["ProductComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"],
-                _app_routing__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
-                ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["ModalModule"].forRoot()
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
+                _app_routing__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__["ModalModule"].forRoot()
             ],
-            providers: [_services_authUser_service__WEBPACK_IMPORTED_MODULE_5__["AuthUserService"], _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuardService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            providers: [_services_authUser_service__WEBPACK_IMPORTED_MODULE_6__["AuthUserService"], _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_8__["AuthGuardService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -215,7 +218,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _product_product_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product/product.component */ "./src/app/product/product.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./authguard/auth-guard.service */ "./src/app/authguard/auth-guard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -226,10 +228,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'product', component: _product_product_component__WEBPACK_IMPORTED_MODULE_2__["ProductComponent"], canActivate: [_authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_4__["AuthGuardService"]] },
+    { path: 'product', component: _product_product_component__WEBPACK_IMPORTED_MODULE_2__["ProductComponent"] },
     // { path: 'detail/:id', component: HeroDetailComponent },
     { path: 'home', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"] }
 ];
@@ -381,6 +382,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Category", function() { return Category; });
 var Category = /** @class */ (function () {
     function Category() {
+        this.state = 'inactive';
     }
     return Category;
 }());
@@ -427,7 +429,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n    <div class=\"disp subheading\">\n        <h1 class=\"subheadingcaption\"><span class=\"fa fa-anchor\"></span> Category</h1>        \n    </div>\n  \n    <div class=\"bod\">\n     <div class=\"row\">\n        <div class=\"col-sm-6\">\n            <div class=\"cbox\">\n                <h3 class=\"text-danger\"><span class=\"\tfa fa-edit\"></span> Categories <i class=\"fa fa-plus\" id=\"myBtn\" style=\"float: right; margin-right: 100px\" (click)=\"openModal(template)\"></i></h3>\n                    <!-- <button type=\"button\" class=\"btn btn-primary\" (click)=\"openModal(template)\">Create template modal</button> -->\n                    <ng-template #template>\n                      <div class=\"modal-header\">\n                        <h4 class=\"modal-title pull-left\">Add Category</h4>\n                        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n                          <span aria-hidden=\"true\">&times;</span>\n                        </button>\n                      </div>\n                      <div class=\"modal-body\">\n                          <form>\n                            <label for=\"name\">Category Name</label>\n                            <input type=\"text\" #name/>\n                            <button type=\"button\" class=\"btn\" (click)=\"addCat(name.value)\">Add</button>\n                        </form>\n                      </div>\n                    </ng-template>                \n                    <ng-template #updtemplate>\n                        <div class=\"modal-header\">\n                          <h4 class=\"modal-title pull-left\">Edit Category</h4>\n                          <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n                            <span aria-hidden=\"true\">&times;</span>\n                          </button>\n                        </div>\n                        <div class=\"modal-body\">\n                            <form >\n                                <input type=\"hidden\" #id value={{modalService.config.initialState.id}}/>\n                              <label for=\"name\">Category Name </label>\n                              <input type=\"text\" #name value={{modalService.config.initialState.name}}/>\n                              <button type=\"button\" class=\"btn\" (click)=\"editCat(id.value,name.value)\">Edit</button>\n                          </form>\n                        </div>\n                      </ng-template>   \n                <table cellspacing=\"20\" cellpadding=\"10\">\n                                              \n                        <tr *ngFor=\"let item of cat\">\n                        <td> {{item.name}}</td>                                    \n                        <td><span class=\"fa fa-minus-square\" id=item._id (click)=\"deleteCat(item._id)\"></span></td>  \n                        <td><i class=\"fa fa-pencil-square-o\" (click)=\"openModal(updtemplate,item)\"></i></td>\n                    </tr>                                                 \n                </table>          \n            </div>\n        </div>\n      </div>\n    </div>\n\n\n"
+module.exports = "\r\n    <div class=\"disp subheading\">\r\n        <h1 class=\"subheadingcaption\"><span class=\"fa fa-anchor\"></span> Category</h1>        \r\n    </div>\r\n  \r\n    <div class=\"bod\">\r\n     <div class=\"row\">\r\n        <div class=\"col-sm-6\">\r\n            <div class=\"cbox\">\r\n                <h3 class=\"text-danger\"><span class=\"\tfa fa-edit\"></span> Categories <i class=\"fa fa-plus\" id=\"myBtn\" style=\"float: right; margin-right: 100px\" (click)=\"openModal(template)\"></i></h3>\r\n                    <!-- <button type=\"button\" class=\"btn btn-primary\" (click)=\"openModal(template)\">Create template modal</button> -->\r\n                    <ng-template #template>\r\n                      <div class=\"modal-header\">\r\n                        <h4 class=\"modal-title pull-left\">Add Category</h4>\r\n                        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                          <span aria-hidden=\"true\">&times;</span>\r\n                        </button>\r\n                      </div>\r\n                      <div class=\"modal-body\">\r\n                          <form>\r\n                            <label for=\"name\">Category Name</label>\r\n                            <input type=\"text\" #name/>\r\n                            <button type=\"button\" class=\"btn\" (click)=\"addCat(name.value)\">Add</button>\r\n                        </form>\r\n                      </div>\r\n                    </ng-template>                \r\n                    <ng-template #updtemplate>\r\n                        <div class=\"modal-header\">\r\n                          <h4 class=\"modal-title pull-left\">Edit Category</h4>\r\n                          <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                            <span aria-hidden=\"true\">&times;</span>\r\n                          </button>\r\n                        </div>\r\n                        <div class=\"modal-body\">\r\n                            <form >\r\n                                <input type=\"hidden\" #id value={{modalService.config.initialState.id}}/>\r\n                              <label for=\"name\">Category Name </label>\r\n                              <input type=\"text\" #name value={{modalService.config.initialState.name}}/>\r\n                              <button type=\"button\" class=\"btn\" (click)=\"editCat(id.value,name.value)\">Edit</button>\r\n                          </form>\r\n                        </div>\r\n                      </ng-template> \r\n                  <div style=\"max-height: 400px; overflow-y: auto\"> \r\n                  <table cellspacing=\"20\" cellpadding=\"10\" class=\"table table-hover\">                                           \r\n                      <tr *ngFor=\"let item of cat\">\r\n                          <td> {{item.name}}</td>                                    \r\n                          <td><span class=\"fa fa-minus-square\" id=item._id (click)=\"deleteCat(item._id)\"></span></td>  \r\n                          <td><i class=\"fa fa-pencil-square-o\" (click)=\"openModal(updtemplate,item)\"></i></td>\r\n                      </tr>\r\n                    </tbody>                                                 \r\n                  </table>\r\n                </div>           \r\n            </div>\r\n        </div>\r\n      </div>\r\n\r\n     \r\n\r\n\r\n<!-- [@itemState]=item.state\r\n                          (click)=\"toggleState(item)\"                           -->"
 
 /***/ }),
 
@@ -447,6 +449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -462,6 +465,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ProductComponent = /** @class */ (function () {
     function ProductComponent(productservice, router, modalService) {
         var _this = this;
@@ -469,12 +473,17 @@ var ProductComponent = /** @class */ (function () {
         this.router = router;
         this.modalService = modalService;
         this.cat = new _models_product_model__WEBPACK_IMPORTED_MODULE_2__["Category"]();
+        this.state = 'inactive';
         debugger;
         this.getData().subscribe(function (x) {
             console.log(x);
             _this.cat = x;
         });
     }
+    ProductComponent.prototype.toggleState = function (item) {
+        debugger;
+        item.state = item.state === 'active' ? 'inactive' : 'active';
+    };
     ProductComponent.prototype.ngOnInit = function () {
     };
     ProductComponent.prototype.openModal = function (template, val) {
@@ -556,7 +565,30 @@ var ProductComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'product',
             template: __webpack_require__(/*! ./product.component.html */ "./src/app/product/product.component.html"),
-            styles: [__webpack_require__(/*! ./product.component.css */ "./src/app/product/product.component.css")]
+            styles: [__webpack_require__(/*! ./product.component.css */ "./src/app/product/product.component.css")],
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["trigger"])('someCoolAnimation', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('*=>fadeIn', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 0 }),
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])(1000, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 1 }))
+                    ]),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('*=>fadeOut', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])(1000, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 0 }))
+                    ])
+                ]),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["trigger"])('itemState', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["state"])('inactive', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({
+                        backgroundColor: '#eee',
+                        transform: 'scale(1)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["state"])('active', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({
+                        backgroundColor: '#cfd8dc',
+                        transform: 'scale(1.1)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('inactive => active', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])('100ms ease-in')),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('active => inactive', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])('100ms ease-out'))
+                ])
+            ]
         }),
         __metadata("design:paramtypes", [_services_products_service__WEBPACK_IMPORTED_MODULE_1__["ProductsService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],

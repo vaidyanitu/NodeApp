@@ -39,18 +39,23 @@
                               <button type="button" class="btn" (click)="editCat(id.value,name.value)">Edit</button>
                           </form>
                         </div>
-                      </ng-template>   
-                <table cellspacing="20" cellpadding="10">
-                                              
-                        <tr *ngFor="let item of cat">
-                        <td> {{item.name}}</td>                                    
-                        <td><span class="fa fa-minus-square" id=item._id (click)="deleteCat(item._id)"></span></td>  
-                        <td><i class="fa fa-pencil-square-o" (click)="openModal(updtemplate,item)"></i></td>
-                    </tr>                                                 
-                </table>          
+                      </ng-template> 
+                  <div style="max-height: 400px; overflow-y: auto"> 
+                  <table cellspacing="20" cellpadding="10" class="table table-hover">                                           
+                      <tr *ngFor="let item of cat">
+                          <td> {{item.name}}</td>                                    
+                          <td><span class="fa fa-minus-square" id=item._id (click)="deleteCat(item._id)"></span></td>  
+                          <td><i class="fa fa-pencil-square-o" (click)="openModal(updtemplate,item)"></i></td>
+                      </tr>
+                    </tbody>                                                 
+                  </table>
+                </div>           
             </div>
         </div>
       </div>
-    </div>
+
+     
 
 
+<!-- [@itemState]=item.state
+                          (click)="toggleState(item)"                           -->
