@@ -83,6 +83,10 @@ MIT
 MIT
 MIT
 
+@angular/forms@6.1.0
+MIT
+MIT
+
 @angular/http@6.1.0
 MIT
 MIT

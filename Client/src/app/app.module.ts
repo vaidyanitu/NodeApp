@@ -3,6 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import{HttpModule} from '@angular/http';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {AuthUserService} from './services/authUser.service';
@@ -21,6 +22,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
+    FormsModule,
     AppRoutingModule,
     ModalModule.forRoot()
   ],

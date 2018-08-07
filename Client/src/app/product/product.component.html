@@ -17,10 +17,13 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                          <form>
+                          <form #f="ngForm">
                             <label for="name">Category Name</label>
-                            <input type="text" #name/>
-                            <button type="button" class="btn" (click)="addCat(name.value)">Add</button>
+                            <input type="text" ngModel #name required/>
+                            <div *ngIf="!name.value && name.touched " class="error">
+                                Name is required
+                              </div>
+                            <button [disabled]="!name.value" type="button" class="btn" (click)="addCat(name.value)">Add</button>
                         </form>
                       </div>
                     </ng-template>                
@@ -40,8 +43,8 @@
                           </form>
                         </div>
                       </ng-template> 
-                  <div style="max-height: 400px; overflow-y: auto"> 
-                  <table cellspacing="20" cellpadding="10" class="table table-hover">                                           
+                  <div style="max-height: 400px; overflow: auto"> 
+                  <table cellspacing="20" cellpadding="10" class="table table-hover" >                                           
                       <tr *ngFor="let item of cat">
                           <td> {{item.name}}</td>                                    
                           <td><span class="fa fa-minus-square" id=item._id (click)="deleteCat(item._id)"></span></td>  

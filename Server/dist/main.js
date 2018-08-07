@@ -153,12 +153,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _services_authUser_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/authUser.service */ "./src/app/services/authUser.service.ts");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
-/* harmony import */ var _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./authguard/auth-guard.service */ "./src/app/authguard/auth-guard.service.ts");
-/* harmony import */ var _product_product_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product/product.component */ "./src/app/product/product.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _services_authUser_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/authUser.service */ "./src/app/services/authUser.service.ts");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
+/* harmony import */ var _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./authguard/auth-guard.service */ "./src/app/authguard/auth-guard.service.ts");
+/* harmony import */ var _product_product_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./product/product.component */ "./src/app/product/product.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -176,25 +177,27 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _product_product_component__WEBPACK_IMPORTED_MODULE_9__["ProductComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_10__["DashboardComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+                _product_product_component__WEBPACK_IMPORTED_MODULE_10__["ProductComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
                 _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
-                _app_routing__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+                _app_routing__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
                 ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__["ModalModule"].forRoot()
             ],
-            providers: [_services_authUser_service__WEBPACK_IMPORTED_MODULE_6__["AuthUserService"], _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_8__["AuthGuardService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            providers: [_services_authUser_service__WEBPACK_IMPORTED_MODULE_7__["AuthUserService"], _authguard_auth_guard_service__WEBPACK_IMPORTED_MODULE_9__["AuthGuardService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -429,7 +432,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n    <div class=\"disp subheading\">\r\n        <h1 class=\"subheadingcaption\"><span class=\"fa fa-anchor\"></span> Category</h1>        \r\n    </div>\r\n  \r\n    <div class=\"bod\">\r\n     <div class=\"row\">\r\n        <div class=\"col-sm-6\">\r\n            <div class=\"cbox\">\r\n                <h3 class=\"text-danger\"><span class=\"\tfa fa-edit\"></span> Categories <i class=\"fa fa-plus\" id=\"myBtn\" style=\"float: right; margin-right: 100px\" (click)=\"openModal(template)\"></i></h3>\r\n                    <!-- <button type=\"button\" class=\"btn btn-primary\" (click)=\"openModal(template)\">Create template modal</button> -->\r\n                    <ng-template #template>\r\n                      <div class=\"modal-header\">\r\n                        <h4 class=\"modal-title pull-left\">Add Category</h4>\r\n                        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                          <span aria-hidden=\"true\">&times;</span>\r\n                        </button>\r\n                      </div>\r\n                      <div class=\"modal-body\">\r\n                          <form>\r\n                            <label for=\"name\">Category Name</label>\r\n                            <input type=\"text\" #name/>\r\n                            <button type=\"button\" class=\"btn\" (click)=\"addCat(name.value)\">Add</button>\r\n                        </form>\r\n                      </div>\r\n                    </ng-template>                \r\n                    <ng-template #updtemplate>\r\n                        <div class=\"modal-header\">\r\n                          <h4 class=\"modal-title pull-left\">Edit Category</h4>\r\n                          <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                            <span aria-hidden=\"true\">&times;</span>\r\n                          </button>\r\n                        </div>\r\n                        <div class=\"modal-body\">\r\n                            <form >\r\n                                <input type=\"hidden\" #id value={{modalService.config.initialState.id}}/>\r\n                              <label for=\"name\">Category Name </label>\r\n                              <input type=\"text\" #name value={{modalService.config.initialState.name}}/>\r\n                              <button type=\"button\" class=\"btn\" (click)=\"editCat(id.value,name.value)\">Edit</button>\r\n                          </form>\r\n                        </div>\r\n                      </ng-template> \r\n                  <div style=\"max-height: 400px; overflow-y: auto\"> \r\n                  <table cellspacing=\"20\" cellpadding=\"10\" class=\"table table-hover\">                                           \r\n                      <tr *ngFor=\"let item of cat\">\r\n                          <td> {{item.name}}</td>                                    \r\n                          <td><span class=\"fa fa-minus-square\" id=item._id (click)=\"deleteCat(item._id)\"></span></td>  \r\n                          <td><i class=\"fa fa-pencil-square-o\" (click)=\"openModal(updtemplate,item)\"></i></td>\r\n                      </tr>\r\n                    </tbody>                                                 \r\n                  </table>\r\n                </div>           \r\n            </div>\r\n        </div>\r\n      </div>\r\n\r\n     \r\n\r\n\r\n<!-- [@itemState]=item.state\r\n                          (click)=\"toggleState(item)\"                           -->"
+module.exports = "\r\n    <div class=\"disp subheading\">\r\n        <h1 class=\"subheadingcaption\"><span class=\"fa fa-anchor\"></span> Category</h1>        \r\n    </div>\r\n  \r\n    <div class=\"bod\">\r\n     <div class=\"row\">\r\n        <div class=\"col-sm-6\">\r\n            <div class=\"cbox\">\r\n                <h3 class=\"text-danger\"><span class=\"\tfa fa-edit\"></span> Categories <i class=\"fa fa-plus\" id=\"myBtn\" style=\"float: right; margin-right: 100px\" (click)=\"openModal(template)\"></i></h3>\r\n                    <!-- <button type=\"button\" class=\"btn btn-primary\" (click)=\"openModal(template)\">Create template modal</button> -->\r\n                    <ng-template #template>\r\n                      <div class=\"modal-header\">\r\n                        <h4 class=\"modal-title pull-left\">Add Category</h4>\r\n                        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                          <span aria-hidden=\"true\">&times;</span>\r\n                        </button>\r\n                      </div>\r\n                      <div class=\"modal-body\">\r\n                          <form #f=\"ngForm\">\r\n                            <label for=\"name\">Category Name</label>\r\n                            <input type=\"text\" ngModel #name required/>\r\n                            <div *ngIf=\"!name.value && name.touched \" class=\"error\">\r\n                                Name is required\r\n                              </div>\r\n                            <button [disabled]=\"!name.value\" type=\"button\" class=\"btn\" (click)=\"addCat(name.value)\">Add</button>\r\n                        </form>\r\n                      </div>\r\n                    </ng-template>                \r\n                    <ng-template #updtemplate>\r\n                        <div class=\"modal-header\">\r\n                          <h4 class=\"modal-title pull-left\">Edit Category</h4>\r\n                          <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                            <span aria-hidden=\"true\">&times;</span>\r\n                          </button>\r\n                        </div>\r\n                        <div class=\"modal-body\">\r\n                            <form >\r\n                                <input type=\"hidden\" #id value={{modalService.config.initialState.id}}/>\r\n                              <label for=\"name\">Category Name </label>\r\n                              <input type=\"text\" #name value={{modalService.config.initialState.name}}/>\r\n                              <button type=\"button\" class=\"btn\" (click)=\"editCat(id.value,name.value)\">Edit</button>\r\n                          </form>\r\n                        </div>\r\n                      </ng-template> \r\n                  <div style=\"max-height: 400px; overflow: auto\"> \r\n                  <table cellspacing=\"20\" cellpadding=\"10\" class=\"table table-hover\" >                                           \r\n                      <tr *ngFor=\"let item of cat\">\r\n                          <td> {{item.name}}</td>                                    \r\n                          <td><span class=\"fa fa-minus-square\" id=item._id (click)=\"deleteCat(item._id)\"></span></td>  \r\n                          <td><i class=\"fa fa-pencil-square-o\" (click)=\"openModal(updtemplate,item)\"></i></td>\r\n                      </tr>\r\n                    </tbody>                                                 \r\n                  </table>\r\n                </div>           \r\n            </div>\r\n        </div>\r\n      </div>\r\n\r\n     \r\n\r\n\r\n<!-- [@itemState]=item.state\r\n                          (click)=\"toggleState(item)\"                           -->"
 
 /***/ }),
 
@@ -472,7 +475,7 @@ var ProductComponent = /** @class */ (function () {
         this.productservice = productservice;
         this.router = router;
         this.modalService = modalService;
-        this.cat = new _models_product_model__WEBPACK_IMPORTED_MODULE_2__["Category"]();
+        this.cat = [];
         this.state = 'inactive';
         debugger;
         this.getData().subscribe(function (x) {
@@ -502,11 +505,12 @@ var ProductComponent = /** @class */ (function () {
         this.productservice.addData(a, '/api/category')
             .subscribe(function (res) {
             console.log(res);
-            _this.getData().subscribe(function (x) {
-                console.log(x);
-                _this.cat = x;
-                _this.modalRef.hide();
-            });
+            // this.getData().subscribe(x=>{
+            //   console.log(x);          
+            //   this.cat=x;
+            _this.modalRef.hide();
+            // });
+            _this.cat.push(res);
         }, function (err) {
             console.log('Error ', err);
         });
@@ -567,15 +571,24 @@ var ProductComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./product.component.html */ "./src/app/product/product.component.html"),
             styles: [__webpack_require__(/*! ./product.component.css */ "./src/app/product/product.component.css")],
             animations: [
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["trigger"])('someCoolAnimation', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('*=>fadeIn', [
-                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 0 }),
-                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])(1000, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 1 }))
-                    ]),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["transition"])('*=>fadeOut', [
-                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["animate"])(1000, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({ opacity: 0 }))
-                    ])
-                ]),
+                // trigger('cat', [
+                //   // transition('* => *', [
+                //   //   query(':enter', style({ opacity: 0 }), {optional: true}),
+                //   //   query(':enter', stagger('300ms', [
+                //   //     animate('.6s ease-in', keyframes([
+                //   //       style({opacity: 0, transform: 'translateY(-75%)', offset: 0}),
+                //   //       style({opacity: .5, transform: 'translateY(35px)',  offset: 0.3}),
+                //   //       style({opacity: 1, transform: 'translateY(0)',     offset: 1.0}),
+                //   //     ]))]), {optional: true})
+                //   // ]),
+                //   transition(':enter', [
+                //     style({transform: 'translateY(-100%)'}),
+                //     animate('200ms ease-in', style({transform: 'translateY(0%)'}))
+                //   ]),
+                //   transition(':leave', [
+                //     animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
+                //   ])
+                // ]), 
                 Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["trigger"])('itemState', [
                     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["state"])('inactive', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_6__["style"])({
                         backgroundColor: '#eee',
