@@ -1,25 +1,25 @@
 
     <div class="disp subheading">
-        <h1 class="subheadingcaption"><span class="fa fa-anchor"></span> Category</h1>        
+        <h1 class="subheadingcaption"><span class="fa fa-anchor"></span> Products</h1>        
     </div>
   
     <div class="bod">
      <div class="row">
         <div class="col-sm-6">
             <div class="cbox">
-                <h3 class="text-danger"><span class="	fa fa-edit"></span> Categories <i class="fa fa-plus" id="myBtn" style="float: right; margin-right: 100px" (click)="openModal(template)"></i></h3>
+                <h3 class="text-danger"><span class="	fa fa-edit"></span> Products <i class="fa fa-plus" id="myBtn" style="float: right; margin-right: 100px" (click)="openModal(template)"></i></h3>
                     <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
                     <ng-template #template>
                       <div class="modal-header">
-                        <h4 class="modal-title pull-left">Add Category</h4>
+                        <h4 class="modal-title pull-left">Add Product</h4>
                         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
                           <form #f="ngForm">
-                            <label for="name">Category Name</label>
-                            <input type="text" ngModel #name required/>
+                            <label for="name">Product Name</label>
+                            <input type="text" [(ngModel)]="Productname" name="ProductName" #name="ngModel" required/>
                             <div *ngIf="!name.value && name.touched " class="error">
                                 Name is required
                               </div>
@@ -29,7 +29,7 @@
                     </ng-template>                
                     <ng-template #updtemplate>
                         <div class="modal-header">
-                          <h4 class="modal-title pull-left">Edit Category</h4>
+                          <h4 class="modal-title pull-left">Edit Product</h4>
                           <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -37,9 +37,12 @@
                         <div class="modal-body">
                             <form >
                                 <input type="hidden" #id value={{modalService.config.initialState.id}}/>
-                              <label for="name">Category Name </label>
-                              <input type="text" #name value={{modalService.config.initialState.name}}/>
-                              <button type="button" class="btn" (click)="editCat(id.value,name.value)">Edit</button>
+                              <label for="name">Product Name </label>
+                              <input type="text" [(ngModel)]="Productname" name="ProductName" #name="ngModel" value={{modalService.config.initialState.name}} required/>
+                              <div *ngIf="!name.value && name.touched " class="error">
+                                Name is required
+                              </div>
+                              <button [disabled]="!name.value" type="button" class="btn" (click)="editCat(id.value,name.value)">Save</button>
                           </form>
                         </div>
                       </ng-template> 

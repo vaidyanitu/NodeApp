@@ -4,6 +4,7 @@
         <h1 class="alignleft"></h1>
         <h1 class="aligncenter"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> My Node Application</h1>
         <div style="float: right;">
+            <a *ngIf="authUser._id" href="/home" class="btn btn-primary">Home</a>
             <a *ngIf="authUser._id; else elseBlock" href="/logout" class="btn btn-default">Logout</a>
             <ng-template #elseBlock><a href="/" class="btn btn-default">Login</a></ng-template>     
             <!-- <a href="/unlink/google" class="btn btn-danger">Unlink <span class="fa fa-google-plus"></span></a> -->       
